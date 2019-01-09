@@ -36,11 +36,11 @@ module ActiveMessaging
   end
 
   def self.app_root
-    @@app_root ||= (ENV['APP_ROOT'] || (defined?(::Rails) && ::Rails.root) || ENV['RAILS_ROOT'] || File.expand_path(Dir.pwd))
+    @@app_root ||= ((defined?(::Rails) && ::Rails.root) || ENV['RAILS_ROOT'] || ENV['APP_ROOT'] || File.expand_path(Dir.pwd))
   end
 
   def self.app_env
-    @@app_env  ||= (ENV['APP_ENV']  || (defined?(::Rails) && ::Rails.env)  || ENV['RAILS_ENV']  || 'development')
+    @@app_env  ||= ((defined?(::Rails) && ::Rails.env)  || ENV['RAILS_ENV']  || ENV['APP_ENV']  || 'development')
   end
 
   def self.load_extensions
